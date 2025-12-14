@@ -17,7 +17,7 @@
     "dotenv": "^16.3.1",
     "serverless-http": "^2.7.0"
   },
-  "engines": {
-  "node": "18.x"
+ "engines": {
+  "node": "24.x"
 }
 }
