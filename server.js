@@ -13,8 +13,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.GMAIL_USER || 'sonu296702@gmail.com',
-    pass: process.env.GMAIL_PASS || 'kvrs ejqd rqxy orjv', // Use App Password, not Gmail password
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS, // Use App Password, not Gmail password
   },
 });
 
@@ -50,8 +50,8 @@ ${message}
 
     // Send email
     const info = await transporter.sendMail({
-      from: process.env.GMAIL_USER || 'sonu296702@gmail.com',
-      to: process.env.GMAIL_USER || 'sonu296702@gmail.com', // Receive at same address
+      from: process.env.GMAIL_USER,
+      to: process.env.GMAIL_USER, // Receive at same address
       subject: 'New Website Inquiry',
       text: emailBody,
     });
