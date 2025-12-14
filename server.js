@@ -74,10 +74,13 @@ app.use((req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Email API server running on http://localhost:${PORT}`);
-  console.log(`Send POST requests to http://localhost:${PORT}/sendmail`);
-});
+// Start server only when run directly (not when required by serverless handlers)
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Email API server running on http://localhost:${PORT}`);
+    console.log(`Send POST requests to http://localhost:${PORT}/sendmail`);
+  });
+}
 
 module.exports = app;
